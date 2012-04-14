@@ -9,9 +9,8 @@
   <meta name="author" content="Daan van Berkel">
 
   
-  <meta name="description" content="Today I started using
-Octopress. The
-description of Octopress as found on the homepage is Octopress is a framework designed by Brandon Mathis for &hellip;">
+  <meta name="description" content="A few months ago I came across
+Travis CI. Travis CI describes itself as A hosted continuous integration service for the open source community. It &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -76,6 +75,77 @@ description of Octopress as found on the homepage is Octopress is a framework de
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/14/travis-ci/">Travis CI</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-14T11:41:00+02:00" pubdate data-updated="true">Apr 14<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A few months ago I came across
+<a href="http://travis-ci.org/" title="Continous Integration Landing Page on Travis CI">Travis CI</a>.</p>
+
+<p>Travis CI describes itself as</p>
+
+<blockquote><p>A hosted continuous integration service for the open source
+ community.</p></blockquote>
+
+<p>It integrates with
+<a href="https://github.com/" title="Social Coding with git">GitHub</a> via
+<a href="http://help.github.com/post-receive-hooks/" title="GitHub on Post-Receive Hooks">post-receive hooks</a>.
+So everytime you push to your GitHub repository Travis gets notified
+and will start building and testing your code.</p>
+
+<p>You have to provide a
+<a href="http://about.travis-ci.org/docs/user/build-configuration/" title="Travis CI on build configuration">.travis.yml</a>
+to configure your build. Although you could customize your build in
+enormous detail, the defaults provided by Travis CI allow you to start
+using continous integration easily.</p>
+
+<p>The bare minimum for a <code>.travis.yml</code> file is the language keyword. For
+example, the file below will instruct Travis to build a java project
+using maven, gradle or ant depending on which files are
+present. I.e. a <code>pom.xml</code>, <code>build.gradle</code> or <code>build.xml</code> file.</p>
+
+<figure class='code'><figcaption><span>Minimal .travis.yml file for a Java project </span><a href='http://about.travis-ci.org/docs/user/languages/java/'>Travis CI documentation</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">language</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">java</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Travis CI supports numerous languages, including Java, Ruby, Erlang,
+Clojure and Haskell. The lanuguage list is growing. To a look on the
+<a href="http://about.travis-ci.org/docs/" title="Travis CI documentation page">documentation page</a>
+for an up-to-date list.</p>
+
+<p>So consider Travis CI for all your open source build.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -152,6 +222,10 @@ on some design choices.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/04/14/travis-ci/">Travis CI</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2012/03/23/using-octopress/">Using Octopress</a>

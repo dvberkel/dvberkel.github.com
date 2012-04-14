@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Blog - select * from ideas</title>
+  <title>Travis CI - select * from ideas</title>
   <meta name="author" content="Daan van Berkel">
 
   
-  <meta name="description" content="Category: Blog">
+  <meta name="description" content="A few months ago I came across
+Travis CI. Travis CI describes itself as A hosted continuous integration service for the open source community. It &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://dvberkel.github.comblog/categories/blog">
+  <link rel="canonical" href="http://dvberkel.github.com/blog/2012/04/14/travis-ci">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -73,35 +74,121 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Blog</h1>
+    
+      <h1 class="entry-title">Travis CI</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-14T11:41:00+02:00" pubdate data-updated="true">Apr 14<span>th</span>, 2012</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>A few months ago I came across
+<a href="http://travis-ci.org/" title="Continous Integration Landing Page on Travis CI">Travis CI</a>.</p>
 
-  
-  <h2>2012</h2>
+<p>Travis CI describes itself as</p>
 
-<article>
-  
-<h1><a href="/blog/2012/03/23/using-octopress/">Using Octopress</a></h1>
-<time datetime="2012-03-23T12:48:00+01:00" pubdate><span class='month'>Mar</span> <span class='day'>23</span> <span class='year'>2012</span></time>
+<blockquote><p>A hosted continuous integration service for the open source
+ community.</p></blockquote>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/blog/'>Blog</a>, <a class='category' href='/blog/categories/github/'>GitHub</a>, <a class='category' href='/blog/categories/octopress/'>Octopress</a></span>
-</footer>
+<p>It integrates with
+<a href="https://github.com/" title="Social Coding with git">GitHub</a> via
+<a href="http://help.github.com/post-receive-hooks/" title="GitHub on Post-Receive Hooks">post-receive hooks</a>.
+So everytime you push to your GitHub repository Travis gets notified
+and will start building and testing your code.</p>
+
+<p>You have to provide a
+<a href="http://about.travis-ci.org/docs/user/build-configuration/" title="Travis CI on build configuration">.travis.yml</a>
+to configure your build. Although you could customize your build in
+enormous detail, the defaults provided by Travis CI allow you to start
+using continous integration easily.</p>
+
+<p>The bare minimum for a <code>.travis.yml</code> file is the language keyword. For
+example, the file below will instruct Travis to build a java project
+using maven, gradle or ant depending on which files are
+present. I.e. a <code>pom.xml</code>, <code>build.gradle</code> or <code>build.xml</code> file.</p>
+
+<figure class='code'><figcaption><span>Minimal .travis.yml file for a Java project </span><a href='http://about.travis-ci.org/docs/user/languages/java/'>Travis CI documentation</a></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">language</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">java</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>Travis CI supports numerous languages, including Java, Ruby, Erlang,
+Clojure and Haskell. The lanuguage list is growing. To a look on the
+<a href="http://about.travis-ci.org/docs/" title="Travis CI documentation page">documentation page</a>
+for an up-to-date list.</p>
 
+<p>So consider Travis CI for all your open source build.</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">Daan van Berkel</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-14T11:41:00+02:00" pubdate data-updated="true">Apr 14<span>th</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/continous-integration/'>Continous Integration</a>, <a class='category' href='/blog/categories/craftsmanship/'>Craftsmanship</a>, <a class='category' href='/blog/categories/github/'>GitHub</a>, <a class='category' href='/blog/categories/software/'>Software</a>, <a class='category' href='/blog/categories/travis/'>Travis</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://dvberkel.github.com/blog/2012/04/14/travis-ci/" data-via="daanvberkel1980" data-counturl="http://dvberkel.github.com/blog/2012/04/14/travis-ci/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/03/23/using-octopress/" title="Previous Post: Using Octopress">&laquo; Using Octopress</a>
+      
+      
+    </p>
+  </footer>
 </article>
 
 </div>
