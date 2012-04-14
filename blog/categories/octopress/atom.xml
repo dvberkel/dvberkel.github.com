@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | select * from ideas]]></title>
   <link href="http://dvberkel.github.com/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://dvberkel.github.com/"/>
-  <updated>2012-03-24T16:11:14+01:00</updated>
+  <updated>2012-04-14T11:39:24+02:00</updated>
   <id>http://dvberkel.github.com/</id>
   <author>
     <name><![CDATA[Daan van Berkel]]></name>
@@ -35,7 +35,7 @@ I used the GitHub pages
 <a href="http://octopress.org/docs/deploying/github/" title="Octopress on GitHub pages deployement">deployment option</a>
 and it worked like a charm.</p>
 
-<p>But aword of warning is necessary. The Octopress' subtitle <em>A blogging
+<p>But a word of warning is necessary. The Octopress' subtitle <em>A blogging
 framework for hackers</em> is in place. You should be comfortable working
 your way around the commandline before using Octopress.</p>
 
