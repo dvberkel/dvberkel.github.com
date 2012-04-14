@@ -1,0 +1,48 @@
+---
+layout: post
+title: "Travis CI"
+date: 2012-04-14 11:41
+comments: true
+categories:
+  - Continous Integration
+  - Software
+  - Craftsmanship
+  - GitHub
+  - Travis
+---
+
+A few months ago I came across
+[Travis CI](http://travis-ci.org/ "Continous Integration Landing Page on Travis CI").
+
+Travis CI describes itself as
+
+> A hosted continuous integration service for the open source
+>  community.
+
+It integrates with
+[GitHub](https://github.com/ "Social Coding with git") via 
+[post-receive hooks](http://help.github.com/post-receive-hooks/ "GitHub on Post-Receive Hooks").
+So everytime you push to your GitHub repository Travis gets notified
+and will start building and testing your code.
+
+You have to provide a
+[.travis.yml](http://about.travis-ci.org/docs/user/build-configuration/ "Travis CI on build configuration")
+to configure your build. Although you could customize your build in
+enormous detail, the defaults provided by Travis CI allow you to start
+using continous integration easily.
+
+The bare minimum for a `.travis.yml` file is the language keyword. For
+example, the file below will instruct Travis to build a java project
+using maven, gradle or ant depending on which files are
+present. I.e. a `pom.xml`, `build.gradle` or `build.xml` file.
+
+``` yaml Minimal .travis.yml file for a Java project http://about.travis-ci.org/docs/user/languages/java/ Travis CI documentation
+language: java
+```
+
+Travis CI supports numerous languages, including Java, Ruby, Erlang,
+Clojure and Haskell. The lanuguage list is growing. To a look on the
+[documentation page](http://about.travis-ci.org/docs/ "Travis CI documentation page")
+for an up-to-date list.
+
+So consider Travis CI for all your open source build.
