@@ -26,7 +26,7 @@ I used the GitHub pages
 [deployment option](http://octopress.org/docs/deploying/github/ "Octopress on GitHub pages deployement")
 and it worked like a charm.
 
-But aword of warning is necessary. The Octopress' subtitle *A blogging
+But a word of warning is necessary. The Octopress' subtitle *A blogging
 framework for hackers* is in place. You should be comfortable working
 your way around the commandline before using Octopress.
 
