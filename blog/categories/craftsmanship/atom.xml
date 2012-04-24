@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Craftsmanship | select * from ideas]]></title>
+  <link href="http://dvberkel.github.com/blog/categories/craftsmanship/atom.xml" rel="self"/>
+  <link href="http://dvberkel.github.com/"/>
+  <updated>2012-04-15T12:21:18+02:00</updated>
+  <id>http://dvberkel.github.com/</id>
+  <author>
+    <name><![CDATA[Daan van Berkel]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Travis CI]]></title>
+    <link href="http://dvberkel.github.com/blog/2012/04/14/travis-ci/"/>
+    <updated>2012-04-14T11:41:00+02:00</updated>
+    <id>http://dvberkel.github.com/blog/2012/04/14/travis-ci</id>
+    <content type="html"><![CDATA[<p>A few months ago I came across
+<a href="http://travis-ci.org/" title="Continous Integration Landing Page on Travis CI">Travis CI</a>.</p>
+
+<p>Travis CI describes itself as</p>
+
+<blockquote><p>A hosted continuous integration service for the open source
+ community.</p></blockquote>
+
+<p>It integrates with
+<a href="https://github.com/" title="Social Coding with git">GitHub</a> via
+<a href="http://help.github.com/post-receive-hooks/" title="GitHub on Post-Receive Hooks">post-receive hooks</a>.
+So everytime you push to your GitHub repository Travis gets notified
+and will start building and testing your code.</p>
+
+<p>You have to provide a
+<a href="http://about.travis-ci.org/docs/user/build-configuration/" title="Travis CI on build configuration">.travis.yml</a>
+to configure your build. Although you could customize your build in
+enormous detail, the defaults provided by Travis CI allow you to start
+using continous integration easily.</p>
+
+<p>The bare minimum for a <code>.travis.yml</code> file is the language keyword. For
+example, the file below will instruct Travis to build a java project
+using maven, gradle or ant depending on which files are
+present. I.e. a <code>pom.xml</code>, <code>build.gradle</code> or <code>build.xml</code> file.</p>
+
+<p><code>yaml Minimal .travis.yml file for a Java project http://about.travis-ci.org/docs/user/languages/java/ Travis CI documentation
+language: java
+</code></p>
+
+<p>Travis CI supports numerous languages, including Java, Ruby, Erlang,
+Clojure and Haskell. The lanuguage list is growing. To a look on the
+<a href="http://about.travis-ci.org/docs/" title="Travis CI documentation page">documentation page</a>
+for an up-to-date list.</p>
+
+<p>So consider Travis CI for all your open source build.</p>
+]]></content>
+  </entry>
+  
+</feed>
