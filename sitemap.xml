@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+    <url>
+        <loc>http://dvberkel.github.com/blog/2012/03/23/using-octopress/</loc>
+        <lastmod>2012-09-09T19:09:01+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://dvberkel.github.com/blog/2012/04/14/travis-ci/</loc>
+        <lastmod>2012-09-09T19:09:01+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://dvberkel.github.com/blog/2012/07/16/software-craftsmanship/</loc>
+        <lastmod>2012-09-09T19:09:01+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://dvberkel.github.com/blog/2012/07/19/command-line-wizardry/</loc>
+        <lastmod>2012-09-09T19:09:01+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://dvberkel.github.com/blog/2012/07/23/javascript-new-regex-vs-slash-slash/</loc>
+        <lastmod>2012-09-09T19:09:01+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://dvberkel.github.com/blog/2012/09/06/revealing-intent-in-javascript/</loc>
+        <lastmod>2012-09-09T19:14:07+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://dvberkel.github.com/blog/archives/</loc>
+        <lastmod>2012-09-09T19:14:07+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://dvberkel.github.com/</loc>
+        <lastmod>2012-09-09T19:14:07+02:00</lastmod>
+    </url>
+</urlset>

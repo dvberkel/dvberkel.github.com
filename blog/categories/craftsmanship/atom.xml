@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: craftsmanship | select * from ideas]]></title>
+  <link href="http://dvberkel.github.com/blog/categories/craftsmanship/atom.xml" rel="self"/>
+  <link href="http://dvberkel.github.com/"/>
+  <updated>2013-02-18T19:58:22+01:00</updated>
+  <id>http://dvberkel.github.com/</id>
+  <author>
+    <name><![CDATA[Daan van Berkel]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Software Craftsmanship]]></title>
+    <link href="http://dvberkel.github.com/blog/2012/07/16/software-craftsmanship/"/>
+    <updated>2012-07-16T11:27:00+02:00</updated>
+    <id>http://dvberkel.github.com/blog/2012/07/16/software-craftsmanship</id>
+    <content type="html"><![CDATA[<p>Software Craftmanship is a
+<a href="http://www.google.com/trends/?q=craftsmanship&amp;ctab=0&amp;geo=all&amp;date=all" title="Google Trend for Craftmanship">hot topic</a>.
+Like all fancy terms it is subject to inflation. What does
+<a href="http://manifesto.softwarecraftsmanship.org/" title="Manifesto for Software Craftsmanship">Software Craftsmanship</a>
+mean when different people use it?</p>
+
+<p><a href="http://martinfowler.com/" title="Homepage of Martin Fowler">Martin Fowler</a>
+retreaded an article about
+<a href="http://martinfowler.com/bliki/SemanticDiffusion.html" title="Martin Fowler on Semantic Diffusion">Semantic Diffusion</a>
+which addresses this point. In this blog post I try to expose the
+values of Software Craftsmanship I held dear.</p>
+
+<h3>It is a Journey</h3>
+
+<p>The metaphor used by the software crafsmanship movement is that of a
+<a href="http://en.wikipedia.org/wiki/Guild" title="Wikipedia on Guild">guild</a>.</p>
+
+<blockquote><p>A guild (German: Gilde) is an association of craftsmen in a
+particular trade. The earliest types of guild were formed as
+confraternities of workers.</p></blockquote>
+
+<p>Before an apprentice could become a true master she would have to work
+as a
+<a href="http://en.wikipedia.org/wiki/Journeyman" title="Wikipedia on Journeyman">journeyman</a>.
+Learning the tricks of the trade while travelling from master to
+master.</p>
+
+<p>For my, This journey symbolises that software craftsman continously
+improves her skills. Furthermore she should sieze every oppertunity to
+learn the "secrets" of the craft.</p>
+
+<p>This implies having an open mind, accept critisims and  be inquisitive.</p>
+
+<h3>Become a Giant</h3>
+
+<p>Famous scientist
+<a href="http://en.wikipedia.org/wiki/Isaac_Newton" title="Wikipedia on Isaac Newton">Isaac Newton</a>
+is purported to have said to
+"<a href="http://en.wikipedia.org/wiki/Standing_on_the_shoulders_of_giants" title="Wikipedia on the famous quote and its origin">stand on the shoulders of giants</a>".
+I certainly remember that I gained a lot with the aid of others. In
+this modern day of age one can learn a vast amount of skills, opinions
+and trivia via books, forums, blogs, podcasts and social media.</p>
+
+<p>I would look to take to oppertunity to give back to the same community
+that trained my to become the software craftsman I am today. I do this
+by playing an active rather than a passive role in the commity. I
+aspire to give talks about various subjects. I answer questions in
+forums, I patch bugs in software, create open source projects and I
+maintain a humble blog.</p>
+
+<p>In my opinion a software craftsman should look out for her fellow guildmembers.</p>
+]]></content>
+  </entry>
+  
+</feed>

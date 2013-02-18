@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript new Regex() vs // - select * from ideas</title>
+  <meta name="author" content="Daan van Berkel">
+
+  
+  <meta name="description" content="JavaScript knows two ways to construct regular expressions. One
+way is the constructor of the RegExp object. E.g. 1
+2
+3
+4
+var r = new RegExp(&#39; &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://dvberkel.github.com/blog/2012/07/23/javascript-new-regex-vs-slash-slash">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <link href="/atom.xml" rel="alternate" title="select * from ideas" type="application/atom+xml">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- The infamous jQuery library -->
+<script type="text/javascript" src="javascripts/jquery-1.7.min.js"></script>
+<script type="text/javascript">
+  jQuery.noConflict(); <!-- Prevent conflicts with Ender.js -->
+</script>
+
+<!-- Coderwall badges -->
+<link href="http://coderwall.com/stylesheets/jquery.coderwall.css" media="all" rel="stylesheet" type="text/css">
+<script src="http://coderwall.com/javascripts/jquery.coderwall.js"></script>
+
+<!-- Google Analytics Tracking -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-33858820-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">select * from ideas</a></h1>
+  
+    <h2>where topic='technical' and state='exploratory'</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:dvberkel.github.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">JavaScript New Regex() vs //</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-23T11:53:00+02:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>JavaScript knows two ways to construct <a href="http://en.wikipedia.org/wiki/Regular_expression" title="Wikipedia on Regular Expressions.">regular expressions</a>. One
+way is the constructor of the <a href="http://www.w3schools.com/jsref/jsref_obj_regexp.asp" title="W3Schools on RegExp">RegExp</a> object. E.g.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s1">&#39;abra&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="s2">&quot;abracadabra&quot;</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">r</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;positive match&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The other way is via a <a href="http://www.w3schools.com/jsref/jsref_obj_regexp.asp" title="W3Schools on RegExp">literal regular expression</a> syntax. E.g.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="sr">/abra/</span><span class="p">;</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="s2">&quot;abracadabra&quot;</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">r</span><span class="p">))</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;positive match&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I recently developed a strong preference for <code>new RegExp()</code>. The reason
+was found in a bug I recently solved with a coworker.</p>
+
+<p>While working on a <a href="http://grails.org/" title="Grails Homepage">Grails</a> application we were sending a Model to
+populate a View. On this View a property of the model was used to
+create a regular expression with. This was achieved with code simlar
+to the example below</p>
+
+<figure class='code'><figcaption><span>Potentially problematic code </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">Account</span> <span class="o">=</span> <span class="p">{};</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">...</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">Account</span><span class="p">.</span><span class="nx">validator</span> <span class="o">=</span> <span class="nx">createValidatorFrom</span><span class="p">(</span><span class="sr">/${model.regexp}/</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">...</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nb">window</span><span class="p">.</span><span class="nx">Account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">;</span>
+</span><span class='line'><span class="p">})()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In this case <code>model.regexp</code> is used to create a regular expression
+that is passed into the <code>createValidatorFrom</code> JavaScript method. So
+far so good.</p>
+
+<p>But what happens if the <code>model.regexp</code> is <code>null</code>? Then the
+<code>${model.regexp}</code> will collapse to the empty string rending the
+JavaScript snippet invalid. The reason being that the literal regular
+expression accidently got turned into a single line comment hiding the
+closing bracket.</p>
+
+<figure class='code'><figcaption><span>Regular expression literal or single line comment? </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">Account</span> <span class="o">=</span> <span class="p">{};</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">...</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">Account</span><span class="p">.</span><span class="nx">validator</span> <span class="o">=</span> <span class="nx">createValidatorFrom</span><span class="p">(</span><span class="c1">//);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">...</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nb">window</span><span class="p">.</span><span class="nx">Account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">;</span>
+</span><span class='line'><span class="p">})()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If the <code>new RegExp()</code> constructor was used this would not become a
+problem. The constructor accepts a string. No slash-delimiter could be
+turned into a single line comment by accident.</p>
+
+<p>Having said that, care should still be taken when working with regular
+expressions. Character classes like <code>\d</code> or <code>\s</code> tend to be
+interpreted in JavaScript string, causing problems of their own.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Daan van Berkel</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-07-23T11:53:00+02:00" pubdate data-updated="true">Jul 23<span>rd</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/javascript/'>JavaScript</a>, <a class='category' href='/blog/categories/regexp/'>regexp</a>, <a class='category' href='/blog/categories/regular-expression/'>regular expression</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://dvberkel.github.com/blog/2012/07/23/javascript-new-regex-vs-slash-slash/" data-via="daan_van_berkel" data-counturl="http://dvberkel.github.com/blog/2012/07/23/javascript-new-regex-vs-slash-slash/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/07/19/command-line-wizardry/" title="Previous Post: Command Line Wizardry">&laquo; Command Line Wizardry</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2012/09/06/revealing-intent-in-javascript/" title="Next Post: Revealing Intent in JavaScript">Revealing Intent in JavaScript &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2012/09/06/revealing-intent-in-javascript/">Revealing Intent in JavaScript</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/23/javascript-new-regex-vs-slash-slash/">JavaScript new Regex() vs //</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/19/command-line-wizardry/">Command Line Wizardry</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/07/16/software-craftsmanship/">Software Craftsmanship</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2012/04/14/travis-ci/">Travis CI</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/dvberkel">@dvberkel</a> on GitHub
+  
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'dvberkel',
+            count: 3,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>Latest Tweets</h1>
+  <ul id="tweets">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+      getTwitterFeed("daan_van_berkel", 4, false);
+    });
+  </script>
+  <script src="/javascripts/twitter.js" type="text/javascript"> </script>
+  
+    <a href="http://twitter.com/daan_van_berkel" class="twitter-follow-button" data-show-count="false">Follow @daan_van_berkel</a>
+  
+</section>
+
+<section class="coderwall" data-coderwall-username="dvberkel" data-coderwall-orientation="vertical"></section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Daan van Berkel -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

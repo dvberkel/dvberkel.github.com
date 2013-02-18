@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: JavaScript | select * from ideas]]></title>
+  <link href="http://dvberkel.github.com/blog/categories/javascript/atom.xml" rel="self"/>
+  <link href="http://dvberkel.github.com/"/>
+  <updated>2013-02-18T19:58:22+01:00</updated>
+  <id>http://dvberkel.github.com/</id>
+  <author>
+    <name><![CDATA[Daan van Berkel]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Revealing Intent in JavaScript]]></title>
+    <link href="http://dvberkel.github.com/blog/2012/09/06/revealing-intent-in-javascript/"/>
+    <updated>2012-09-06T08:37:00+02:00</updated>
+    <id>http://dvberkel.github.com/blog/2012/09/06/revealing-intent-in-javascript</id>
+    <content type="html"><![CDATA[<p><a href="https://sites.google.com/site/unclebobconsultingllc/" title="Robert C. Martin's homepage">Uncle Bob</a>'s book <a href="http://books.google.nl/books?id=dwSfGQAACAAJ&amp;dq=clean+code&amp;source=bl&amp;ots=YW1kw3CKTZ&amp;sig=yjMaggeNUevDFvvgHaK_Ueyxr4s&amp;hl=en&amp;sa=X&amp;ei=80RIUOfXNIayhAfZpIGgDA&amp;redir_esc=y" title="Clean Code on google books">Clean Code</a> has a chapter called Meaningfull
+Names. In this chapter Uncle Bob offers advice, tips, tricks and ideas
+how to reveal the intention of the code. There is web of pages on the
+content creation wiki <a href="c2.org" title="Content Creation Wik on Patterns in Software Development">C2</a> with a similiar focus. The page
+<a href="http://c2.com/cgi/wiki?IntentionRevealingNames" title="C2 on Intention Revealing Names">Intention Revealing Names</a> is a good starting place.</p>
+
+<p>The goal of intention revealing code is to aid in <a href="http://en.wikipedia.org/wiki/Hermeneutics" title="Wikipedia on Hermeneutics">Hermeneutics</a>, a
+fancy word for</p>
+
+<p><blockquote><p>the art and science of text interpretations.</p><footer><strong>Wikipedia</strong> <cite><a href='http://en.wikipedia.org/wiki/Hermeneutics'>Hermeneutics</a></cite></footer></blockquote></p>
+
+<p>The motivation behind intention revealing code is the insight that the
+amount of code-reading far outweighs the amount of code-writing. Jeff
+Atwood wrote a nice blog about the issue: <a href="http://www.codinghorror.com/blog/2006/09/when-understanding-means-rewriting.html" title="When understanding means Rewriting on Coding Horror">When understanding means Rewriting</a>.</p>
+
+<p>I recently developed a style which communicates the intent of code
+very clearly. In this blog I would like to share my insights, hoping
+that others may benefit. Lets start with an example.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Example of intention revealing code </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">an_array</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">];</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">swap</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">).</span><span class="nx">and</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">).</span><span class="k">in</span><span class="p">(</span><span class="nx">an_array</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>I would wager that the intent of the above code is clear. In my
+opinion the code is very readable, focussing on the What instead of
+the How. It uses a <a href="http://martinfowler.com/bliki/FluentInterface.html" title="Martin Fowler on Fleunt Interface">fluent interface</a>, as introduced by Martin
+Fowler. A possible implementation is given below.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Possible implementation </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">swap</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">this_element</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="k">return</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">and</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">that_element</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">in</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">an_array</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="kd">var</span> <span class="nx">index_of</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">){</span> <span class="k">return</span> <span class="nx">an_array</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span> <span class="p">};</span>
+</span><span class='line'>                <span class="nx">place</span><span class="p">(</span><span class="nx">this_element</span><span class="p">).</span><span class="nx">at</span><span class="p">(</span><span class="nx">index_of</span><span class="p">(</span><span class="nx">that_element</span><span class="p">)).</span><span class="k">in</span><span class="p">(</span><span class="nx">an_array</span><span class="p">);</span>
+</span><span class='line'>                <span class="nx">place</span><span class="p">(</span><span class="nx">that_element</span><span class="p">).</span><span class="nx">at</span><span class="p">(</span><span class="nx">index_of</span><span class="p">(</span><span class="nx">this_element</span><span class="p">)).</span><span class="k">in</span><span class="p">(</span><span class="nx">an_array</span><span class="p">);</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">};</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">};</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">place</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="k">return</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">at</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="p">{</span>
+</span><span class='line'>            <span class="k">in</span> <span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">an_array</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>                <span class="nx">an_array</span><span class="p">[</span><span class="nx">index</span><span class="p">]</span> <span class="o">=</span> <span class="nx">element</span><span class="p">;</span>
+</span><span class='line'>            <span class="p">}</span>
+</span><span class='line'>        <span class="p">};</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'><span class="p">};</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript new Regex() vs //]]></title>
+    <link href="http://dvberkel.github.com/blog/2012/07/23/javascript-new-regex-vs-slash-slash/"/>
+    <updated>2012-07-23T11:53:00+02:00</updated>
+    <id>http://dvberkel.github.com/blog/2012/07/23/javascript-new-regex-vs-slash-slash</id>
+    <content type="html"><![CDATA[<p>JavaScript knows two ways to construct <a href="http://en.wikipedia.org/wiki/Regular_expression" title="Wikipedia on Regular Expressions.">regular expressions</a>. One
+way is the constructor of the <a href="http://www.w3schools.com/jsref/jsref_obj_regexp.asp" title="W3Schools on RegExp">RegExp</a> object. E.g.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s1">&#39;abra&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="s2">&quot;abracadabra&quot;</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">r</span><span class="p">))</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;positive match&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>The other way is via a <a href="http://www.w3schools.com/jsref/jsref_obj_regexp.asp" title="W3Schools on RegExp">literal regular expression</a> syntax. E.g.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">r</span> <span class="o">=</span> <span class="sr">/abra/</span><span class="p">;</span>
+</span><span class='line'><span class="k">if</span> <span class="p">(</span><span class="s2">&quot;abracadabra&quot;</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">r</span><span class="p">))</span> <span class="p">{</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;positive match&quot;</span><span class="p">);</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>I recently developed a strong preference for <code>new RegExp()</code>. The reason
+was found in a bug I recently solved with a coworker.</p>
+
+<p>While working on a <a href="http://grails.org/" title="Grails Homepage">Grails</a> application we were sending a Model to
+populate a View. On this View a property of the model was used to
+create a regular expression with. This was achieved with code simlar
+to the example below</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Potentially problematic code </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">Account</span> <span class="o">=</span> <span class="p">{};</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">...</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">Account</span><span class="p">.</span><span class="nx">validator</span> <span class="o">=</span> <span class="nx">createValidatorFrom</span><span class="p">(</span><span class="sr">/${model.regexp}/</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">...</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">Account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">})()</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>In this case <code>model.regexp</code> is used to create a regular expression
+that is passed into the <code>createValidatorFrom</code> JavaScript method. So
+far so good.</p>
+
+<p>But what happens if the <code>model.regexp</code> is <code>null</code>? Then the
+<code>${model.regexp}</code> will collapse to the empty string rending the
+JavaScript snippet invalid. The reason being that the literal regular
+expression accidently got turned into a single line comment hiding the
+closing bracket.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>Regular expression literal or single line comment? </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="p">(</span><span class="kd">function</span><span class="p">(){</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span><span class="kd">var</span> <span class="nx">Account</span> <span class="o">=</span> <span class="p">{};</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">...</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">Account</span><span class="p">.</span><span class="nx">validator</span> <span class="o">=</span> <span class="nx">createValidatorFrom</span><span class="p">(</span><span class="c1">//);</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">...</span>
+</span><span class='line'>
+</span><span class='line'><span class="nb">window</span><span class="p">.</span><span class="nx">Account</span> <span class="o">=</span> <span class="nx">Account</span><span class="p">;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="err">/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">})()</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>If the <code>new RegExp()</code> constructor was used this would not become a
+problem. The constructor accepts a string. No slash-delimiter could be
+turned into a single line comment by accident.</p>
+
+<p>Having said that, care should still be taken when working with regular
+expressions. Character classes like <code>\d</code> or <code>\s</code> tend to be
+interpreted in JavaScript string, causing problems of their own.</p>
+]]></content>
+  </entry>
+  
+</feed>

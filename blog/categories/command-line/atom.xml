@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: command line | select * from ideas]]></title>
+  <link href="http://dvberkel.github.com/blog/categories/command-line/atom.xml" rel="self"/>
+  <link href="http://dvberkel.github.com/"/>
+  <updated>2013-02-18T19:58:22+01:00</updated>
+  <id>http://dvberkel.github.com/</id>
+  <author>
+    <name><![CDATA[Daan van Berkel]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Command Line Wizardry]]></title>
+    <link href="http://dvberkel.github.com/blog/2012/07/19/command-line-wizardry/"/>
+    <updated>2012-07-19T10:36:00+02:00</updated>
+    <id>http://dvberkel.github.com/blog/2012/07/19/command-line-wizardry</id>
+    <content type="html"><![CDATA[<p>The command line is a powerfull tool. It harnessess the power to
+slice and dice data from and into the system, transforming it for the
+better.</p>
+
+<p><a href="http://pragprog.com/the-pragmatic-programmer/" title="The Pragmatic Programmer: From Journeyman to Master">The pragmatic programmer</a> even devotes a tip on the use of <a href="http://pragmatictips.com/21" title="Use the Power of Command Shells tip on pragmatictips.com">the
+command line</a>:</p>
+
+<p><blockquote><p>Every woodworker needs a good, solid, reliable workbench, somewhere to<br/>hold work pieces at a convenient height while he or she works<br/>them. The workbench becomes the center of the wood shop, the craftsman<br/>returning to it time and time again as a piece takes shape.</p></p><p><p>For a programmer manipulating files of text, that workbench is the<br/>command shell. From the shell prompt, you can invoke your full<br/>repertoire of tools, using pipes to combine them in ways never dreamt<br/>of by their original developers. From the shell, you can launch<br/>applications, debuggers, browsers, editors, and utilities. You can<br/>search for files, query the status of the system, and filter<br/>output. And by programming the shell, you can build complex macro<br/>commands for activities you perform often.</p><footer><strong>The Pragmatic Programmer</strong> <cite><a href='http://pragmatictips.com/21'>Tip 21</a></cite></footer></blockquote></p>
+
+<p>I recently learned a new command which I find very usefull. The
+command is <code>cut</code> and it allows to cut a line of text along a delimeter
+and select a portion from it.</p>
+
+<p>From the manpage for <code>cut</code></p>
+
+<p><blockquote><p>The cut utility cuts out selected portions of each line (as specified<br/>by list) from each file and writes them to the standard output.  If no<br/>file arguments are specified, or a file argument is a single dash<br/>(`-'), cut reads from the standard input.  The items specified by list<br/>can be in terms of column position or in terms of fields delimited by<br/>a special character.  Column numbering starts from 1.</p><footer><strong>SS64</strong> <cite><a href='http://ss64.com/bash/cut.html'>Manpage for Cut</a></cite></footer></blockquote></p>
+
+<p>For example the following command kills all the running java programs
+with one command.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>ps -u dvberkel | grep java | cut -d <span class="s1">&#39; &#39;</span> -f 4 | <span class="nb">kill</span> -9
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+]]></content>
+  </entry>
+  
+</feed>
