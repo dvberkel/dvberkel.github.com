@@ -24,7 +24,8 @@ GEM
       kramdown (>= 0.13.2)
       liquid (>= 1.9.0)
       maruku (>= 0.5.9)
-    kramdown (0.13.3)
+    kramdown (2.3.0)
+      rexml
     liquid (2.2.2)
     maruku (0.6.0)
       syntax (>= 1.0.0)
@@ -35,6 +36,7 @@ GEM
     rake (12.3.3)
     rb-fsevent (0.4.3.1)
     rdiscount (1.6.8)
+    rexml (3.2.4)
     rubypants (0.2.0)
     rubypython (0.5.1)
       blankslate (>= 2.1.2.3)
