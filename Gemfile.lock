@@ -24,7 +24,7 @@ GEM
       kramdown (>= 0.13.2)
       liquid (>= 1.9.0)
       maruku (>= 0.5.9)
-    kramdown (2.3.0)
+    kramdown (2.3.1)
       rexml
     liquid (2.2.2)
     maruku (0.6.0)
